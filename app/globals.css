@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-copper: var(--copper);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-cormorant);
+  --font-mono: var(--font-geist-mono);
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+}
+
+:root {
+  color-scheme: light;
+  --background: #f1eadf;
+  --foreground: #211b17;
+  --cream: #f1eadf;
+  --ink: #211b17;
+  --copper: #b96032;
+  --border: rgba(33, 27, 23, 0.16);
+}
+
+* { @apply border-border; }
+html { scroll-behavior: smooth; background: var(--ink); }
+body { @apply bg-background text-foreground font-sans antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+.hero-grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"); }
+.map-grid { background-color: #d6c6ae; }
+.field { @apply flex flex-col gap-2 text-[10px] font-bold uppercase tracking-[0.18em] text-cream/70; }
+.field input, .field select { @apply mt-1 w-full border-b border-cream/45 bg-transparent px-0 py-3 text-sm font-normal normal-case tracking-normal text-cream outline-none transition placeholder:text-cream/45 focus:border-cream; }
+.field select { color-scheme: dark; }
+.field option { background: var(--ink); color: var(--cream); }
+::selection { background: var(--copper); color: var(--cream); }
